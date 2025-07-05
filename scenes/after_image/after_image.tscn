@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://1umbuoi4xgkf"]
+
+[ext_resource type="Script" uid="uid://ydgl3no6bcad" path="res://scenes/after_image/after_image.gd" id="1_g268v"]
+
+[node name="AfterImage" type="Node2D"]
+script = ExtResource("1_g268v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1

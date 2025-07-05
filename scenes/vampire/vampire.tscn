@@ -1,0 +1,139 @@
+[gd_scene load_steps=21 format=3 uid="uid://bntjxav60g3c7"]
+
+[ext_resource type="Texture2D" uid="uid://c4gi0mi31gsc8" path="res://scenes/vampire/enemies-vampire_idle.png" id="1_2nvup"]
+[ext_resource type="Script" uid="uid://hqcdd7o7scnc" path="res://scenes/vampire/vampire.gd" id="1_k8sb1"]
+[ext_resource type="Texture2D" uid="uid://b5o1tlnac1nas" path="res://scenes/vampire/vampire_shadow.png" id="2_l42ly"]
+[ext_resource type="Texture2D" uid="uid://jv2qcn0hi4up" path="res://scenes/vampire/enemies-vampire_movement.png" id="2_mrsa7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nvup"]
+atlas = ExtResource("1_2nvup")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrsa7"]
+atlas = ExtResource("1_2nvup")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8sb1"]
+atlas = ExtResource("1_2nvup")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l42ly"]
+atlas = ExtResource("1_2nvup")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_squv8"]
+atlas = ExtResource("1_2nvup")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts7bm"]
+atlas = ExtResource("1_2nvup")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bng2v"]
+atlas = ExtResource("2_mrsa7")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwa8y"]
+atlas = ExtResource("2_mrsa7")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26oca"]
+atlas = ExtResource("2_mrsa7")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_majc1"]
+atlas = ExtResource("2_mrsa7")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2w5nh"]
+atlas = ExtResource("2_mrsa7")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hgyx"]
+atlas = ExtResource("2_mrsa7")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu723"]
+atlas = ExtResource("2_mrsa7")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acwpf"]
+atlas = ExtResource("2_mrsa7")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwa8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nvup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrsa7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8sb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l42ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_squv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts7bm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bng2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwa8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26oca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_majc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2w5nh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hgyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu723")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acwpf")
+}],
+"loop": true,
+"name": &"movement",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2nvup"]
+radius = 20.0
+height = 64.0
+
+[node name="Vampire" type="CharacterBody2D"]
+script = ExtResource("1_k8sb1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.411765)
+position = Vector2(-12, 52)
+scale = Vector2(2, 2)
+texture = ExtResource("2_l42ly")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uwa8y")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-12, 20)
+shape = SubResource("CapsuleShape2D_2nvup")
